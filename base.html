@@ -1,0 +1,54 @@
+{% load static %}
+<html>
+    <head>
+        <title>P2T</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <!--<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		<style> 
+			table{width:100%} 
+			td, th {
+				
+				font-family:Arial;
+ 				text-align: center;
+				padding: 5px;
+				}
+		</style>
+    </head>
+    <body>
+	
+    <div class="page-header">
+	{% if user.is_authenticated %}
+    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+{% endif %}
+
+	<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+<h1 style="font-family:impact">
+	<a href="/">P2T</a>
+</h1>
+
+<h2>
+	<table>
+	<tr>
+		<th><a href="/admin">Admin</a></th>
+		<th><a href="/roster">Roster</a></th>
+		<th><a href="/grades">Grades</a></th>
+		<th><a href="/duel_credit">Dual Credit</a></th>
+		<th><a href="/transcript">Transcript</a></th>
+	</tr>
+	</table>
+</h2>
+	
+    </div>
+    <div class="content container">
+        <div class="row">
+
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
